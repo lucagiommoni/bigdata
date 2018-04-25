@@ -1,4 +1,4 @@
-package it.polito.bigdata.hadoop.ex1;
+package it.polito.bigdata.hadoop.ex3;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -7,8 +7,8 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
@@ -34,7 +34,7 @@ public class MyDriver extends Configured implements Tool{
 		Job job = Job.getInstance(conf);
 
 		// Assign a name to the job
-		job.setJobName("Exercise_01");
+		job.setJobName("Exercise_03");
 
 		// Set the path of the input file/folder
 		FileInputFormat.addInputPath(job, inputPath);
@@ -45,10 +45,8 @@ public class MyDriver extends Configured implements Tool{
 		// Specify the class of the driver
 		job.setJarByClass(MyDriver.class);
 
-		// Set the job input format
-		job.setInputFormatClass(TextInputFormat.class);
-
-		// Set the job output format
+		// Set the job input and  output format
+		job.setInputFormatClass(KeyValueTextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
 
 		// Set the mapper class
@@ -58,15 +56,17 @@ public class MyDriver extends Configured implements Tool{
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);
 
+		// Set number of reducer
+		job.setNumReduceTasks(numOfReducers);
+
 		// Set reducer class
-		job.setReducerClass(MyReducer.class);
+		if (numOfReducers != 0) {
+		  job.setReducerClass(MyReducer.class);
+		}
 
 		// Set reducer output key and value classes
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
-
-		// Set number of reducer
-		job.setNumReduceTasks(numOfReducers);
 
 		// Execute the job and wait for completion
 		if (!job.waitForCompletion(true))
