@@ -1,9 +1,8 @@
-package it.polito.bigdata.hadoop.ex5;
+package it.polito.bigdata.hadoop.ex6;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -34,7 +33,7 @@ public class MyDriver extends Configured implements Tool{
 		Job job = Job.getInstance(conf);
 
 		// Assign a name to the job
-		job.setJobName("Exercise_05");
+		job.setJobName("Exercise_06");
 
 		// Set the path of the input file/folder
 		FileInputFormat.addInputPath(job, inputPath);
@@ -54,7 +53,7 @@ public class MyDriver extends Configured implements Tool{
 
 		// Set the mapper output key and value classes
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(MyCustomType.class);
+		job.setMapOutputValueClass(Text.class);
 
 		// Set number of reducer
 		job.setNumReduceTasks(numOfReducers);
@@ -64,12 +63,11 @@ public class MyDriver extends Configured implements Tool{
 		  job.setReducerClass(MyReducer.class);
 		}
 
-		// Set the combiner class
 		job.setCombinerClass(MyCombiner.class);
-
+		
 		// Set reducer output key and value classes
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(DoubleWritable.class);
+		job.setOutputValueClass(Text.class);
 
 		// Execute the job and wait for completion
 		if (!job.waitForCompletion(true))

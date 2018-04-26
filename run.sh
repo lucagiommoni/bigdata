@@ -5,6 +5,9 @@ REDUCER_NUM="test"
 EX_NUM="test"
 USER=$(whoami)
 
+echo
+echo
+
 while [[ true ]]; do
 	echo "Insert exercise number:"
 	read EX_NUM
@@ -32,10 +35,6 @@ while ! [[ $REDUCER_NUM =~ $re ]]; do
 	read REDUCER_NUM
 done
 
-if [[ ! -f  ]]; then
-	#statements
-fi
-
 echo
 echo
 
@@ -61,8 +60,12 @@ echo "OUTPUT FILE"
 hdfs dfs -ls -h /user/${USER}/output
 echo
 echo "OUTPUT CONTENT"
-hdfs dfs -cat /user/${USER}/output/*
+hdfs dfs -cat /user/${USER}/output/part-r-*
 echo
 echo
 # Remove directory relative to the exercise
 hdfs dfs -rm -r -f /user/${USER}/*
+
+echo
+echo
+echo

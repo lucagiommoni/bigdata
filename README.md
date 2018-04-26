@@ -18,10 +18,14 @@
 
     * [verison 2](#ex5v2) : use of **combiner**
 
+  * [Exercise 6](#ex6) : Min and Max without custom type
+
 
 # Word Count Problem
 
 ## Exercise 2 <a name="ex2"></a>
+
+Number of occurences of each word appearing in the input file
 
 ### INPUT
 Unstructured textual file
@@ -31,7 +35,6 @@ Hello man
 ```
 
 ### OUTPUT
-Number of occurences of each word appearing in the input file
 ```
 hello   2
 man     1
@@ -42,6 +45,8 @@ world   1
 
 ## Exercise 3 <a name="ex3"></a>
 
+Report, for each sensor, the number of days with PM10 above a specific threshold (hardcoded)
+
 ### INPUT
 Structured textual file
 ```
@@ -50,13 +55,14 @@ s1,2016-01-01   20.5
 ```
 
 ### OUTPUT
-Report, for each sensor, the number of days with PM10 above a specific threshold (hardcoded)
 ```
 s1   2
 s2   1
 ```
 
 ## Exercise 5 version 1 <a name="ex5v1"></a>
+
+Report, for each sensor, the average value of PM10
 
 ### INPUT
 Structured csv textual file
@@ -67,7 +73,6 @@ s1,2016-01-01,20.5
 ```
 
 ### OUTPUT
-Report, for each sensor, the average value of PM10
 ```
 s1   45.4
 s2   34.3
@@ -75,6 +80,7 @@ s2   34.3
 
 ## Exercise 5 version 2 <a name="ex5v2"></a>
 
+Report, for each sensor, the average value of PM10
 This version will use a **combiner** and a **custom type**.
 
 ### INPUT
@@ -86,8 +92,26 @@ s1,2016-01-01,20.5
 ```
 
 ### OUTPUT
-Report, for each sensor, the average value of PM10
 ```
 s1   45.4
 s2   34.3
+```
+
+## Exercise 6 <a name="ex5v2"></a>
+
+Report, for each sensor, the maximum and the minimum value of PM10
+This version will use a **combiner** but **no custom type**.
+
+### INPUT
+Structured csv textual file
+```
+s1,2016-01-01,20.5
+25,2016-01-01,30.1
+...
+```
+
+### OUTPUT
+```
+s1    max=60.2_min=20.5
+s2    max=52.5_min=20.4
 ```

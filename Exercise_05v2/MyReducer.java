@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package it.polito.bigdata.hadoop.ex5;
 
 import java.io.IOException;
@@ -13,19 +16,20 @@ import org.apache.hadoop.mapreduce.Reducer;
  *
  * Apr 24, 2018
  */
-public class MyReducer extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
+public class MyReducer extends Reducer<Text, MyCustomType, Text, DoubleWritable> {
 
 	@Override
-	protected void reduce(Text key, Iterable<DoubleWritable> values, Reducer<Text, DoubleWritable, Text, DoubleWritable>.Context context) throws IOException, InterruptedException {
-
+	protected void reduce(Text key, Iterable<MyCustomType> values,
+			Reducer<Text, MyCustomType, Text, DoubleWritable>.Context context) throws IOException, InterruptedException {
+		
 		int count = 0;
 		double sum = 0;
-
-		for (DoubleWritable value : values) {
-			count++;
-			sum += value.get();
+		
+		for (MyCustomType value : values) {
+			count += value.getCount();
+			sum += value.getSum();
 		}
-
+		
 		context.write(key, new DoubleWritable(sum/count));
 	}
 }
