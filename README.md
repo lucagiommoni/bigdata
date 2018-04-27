@@ -7,6 +7,8 @@
 
   * [Exercise 02](#ex2): all file in a directory
 
+  * [Exercise 09](#ex9) : in-mapper combiner
+
 
 2. PM10 pollution analysis
 
@@ -29,20 +31,42 @@
 
 ## Exercise 2 <a name="ex2"></a>
 
-Number of occurences of each word appearing in the input file
+Number of occurrences of each word appearing in the input file
 
 ### INPUT
 Unstructured textual file
 ```
-Hello world
-Hello man
+Test of the word count program
+The word program is the Hadoop hello word program
+Example document for hadoop word count
 ```
 
 ### OUTPUT
 ```
-hello   2
-man     1
-world   1
+test    1
+of      1
+the     3
+...
+```
+
+## Exercise 9 <a name="ex9"></a>
+
+Number of occurrences of each word appearing in the input file
+
+### INPUT
+Unstructured textual file
+```
+Test of the word count program
+The word program is the Hadoop hello word program
+Example document for hadoop word count
+```
+
+### OUTPUT
+```
+test    1
+of      1
+the     3
+...
 ```
 
 # PM10 Pollution Analysis

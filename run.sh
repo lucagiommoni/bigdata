@@ -1,7 +1,9 @@
 #!/bin/bash
 
-re='^[0-9]+$'
+re_num='^[0-9]+$'
+re_yn='^[yn]$'
 REDUCER_NUM="test"
+ISCOMBINER="test"
 EX_NUM="test"
 USER=$(whoami)
 
@@ -30,9 +32,14 @@ while [[ true ]]; do
 	fi
 done
 
-while ! [[ $REDUCER_NUM =~ $re ]]; do
+while ! [[ $REDUCER_NUM =~ $re_num ]]; do
 	echo "Insert number of reducer:"
 	read REDUCER_NUM
+done
+
+while ! [[ $ISCOMBINER =~ $re_yn ]]; do
+	echo "Use of combiner (y/n):"
+	read ISCOMBINER
 done
 
 echo
@@ -45,7 +52,7 @@ hdfs dfs -rm -r -f /user/${USER}/*
 hdfs dfs -put ex${EX_NUM}/data /user/${USER}
 
 # Execute jar
-hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver ${REDUCER_NUM} /user/${USER}/data /user/${USER}/output
+hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver ${REDUCER_NUM} ${ISCOMBINER} /user/${USER}/data /user/${USER}/output
 
 if [[ $? -ne 0 ]]; then
 	echo
