@@ -24,6 +24,8 @@
 
   * [Exercise 10](#ex10) : Custom counters
 
+  * [Exercise 12](#ex12) : **Map Only Job** - _(user provided threshold)_
+
 
 3. Total income for each month + monthly average for each year
 
@@ -164,6 +166,32 @@ s1,2016-01-01,20.5
 ### OUTPUT
 ```
 MYCOUNTERS.TOT_RECORDS = 6
+```
+
+## Exercise 12 <a name="ex12"></a>
+
+Output are records with a PM10 value below a **user provided** _(arguments of program)_ threshold.
+**No Reducer**
+**No Combiner**
+
+### INPUT
+Structured csv textual file
+```
+s1,2016-01-01	20.5
+s1,2016-01-01	30.1
+s2,2016-01-01	60.2
+s2,2016-01-02	20.4
+s1,2016-01-03	55.5
+s2,2016-01-03	52.5
+
+Threshold   21
+
+```
+
+### OUTPUT
+```
+s1,2016-01-01	20.5
+s2,2016-01-02	20.4
 ```
 
 

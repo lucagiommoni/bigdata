@@ -65,6 +65,31 @@ while [[ true ]]; do
 	fi
 done
 
+while [[ true ]]; do
+	echo "Insert the number of additional parameter (default=0):"
+	read ADD_PAR_COUNT
+	if [[ -z "$ADD_PAR_COUNT" ]]; then
+		ADD_PAR_COUNT=0
+		echo "*** default value $ISCOMBINER choosen!"
+		echo
+		break
+	elif [[ $REDUCER_NUM =~ $re_num ]]; then
+		break
+	fi
+done
+
+if [[ $ADD_PAR_COUNT -ne 0 ]]; then
+	for (( i = 0; i < $ADD_PAR_COUNT; i++ )); do
+		echo "Insert the value of parameter:"
+		read TMP
+		while [[ -z "$TMP" ]]; do
+			echo "Empty parameter entered, please enter non empty value:"
+			read TMP
+		done
+		ADD_PAR="$ADD_PAR $TMP"
+	done
+fi
+
 echo
 echo
 
@@ -75,7 +100,7 @@ hdfs dfs -rm -r -f /user/${USER}/*
 hdfs dfs -put ex${EX_NUM}/data /user/${USER}
 
 # Execute jar
-hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver ${REDUCER_NUM} ${ISCOMBINER} /user/${USER}/data /user/${USER}/output
+hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver "/user/${USER}/data" "/user/${USER}/output" $REDUCER_NUM $ISCOMBINER $ADD_PAR
 
 if [[ $? -ne 0 ]]; then
 	echo
