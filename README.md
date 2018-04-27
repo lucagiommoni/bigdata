@@ -22,6 +22,9 @@
 
   * [Exercise 6](#ex6) : Min and Max without custom type
 
+  * [Exercise 10](#ex10) : Custom counters
+
+
 3. Total income for each month + monthly average for each year
 
   * [Exercise 8](#ex8) : Use of setup an clean up method
@@ -68,6 +71,7 @@ of      1
 the     3
 ...
 ```
+
 
 # PM10 Pollution Analysis
 
@@ -143,6 +147,25 @@ s1,2016-01-01,20.5
 s1    max=60.2_min=20.5
 s2    max=52.5_min=20.4
 ```
+
+## Exercise 10 <a name="ex10"></a>
+
+Total number of records.
+No reducer nor combiner are used; the mapper increment the counter each time it receives an input.
+
+### INPUT
+Structured csv textual file
+```
+s1,2016-01-01,20.5
+25,2016-01-01,30.1
+...
+```
+
+### OUTPUT
+```
+MYCOUNTERS.TOT_RECORDS = 6
+```
+
 
 ## Total income for each month + monthly average for each year
 

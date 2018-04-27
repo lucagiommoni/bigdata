@@ -2,9 +2,12 @@
 
 re_num='^[0-9]+$'
 re_yn='^[yn]$'
-REDUCER_NUM="test"
-ISCOMBINER="test"
-EX_NUM="test"
+
+REDUCER_NUM=""
+ISCOMBINER=""
+EX_NUM=""
+EX_VER=""
+
 USER=$(whoami)
 
 echo
@@ -13,17 +16,21 @@ echo
 while [[ true ]]; do
 	echo "Insert exercise number:"
 	read EX_NUM
-	if [[ ! -d ex${EX_NUM} ]]; then
-		echo "No directory found related to exercise ${EX_NUM}"
-	else
+	if [[ -d ex${EX_NUM} ]]; then
 		break
 	fi
+		echo "No directory found related to exercise ${EX_NUM}"
 done
 
 while [[ true ]]; do
-	echo "Insert exercise version:"
+	echo "Insert exercise version (press enter for default=1):"
 	read EX_VER
-	if [[ ! -f ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar ]]; then
+	if [[ -z "$EX_VER" ]]; then
+		EX_VER=1
+		echo "*** default value $EX_VER choosen!"
+		echo
+		break;
+	elif [[ ! -f ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar ]]; then
 		echo "JAR file 'ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar' not found!"
 		echo "Choose one between"
 		ls ex${EX_NUM}/*.jar
@@ -32,14 +39,30 @@ while [[ true ]]; do
 	fi
 done
 
-while ! [[ $REDUCER_NUM =~ $re_num ]]; do
-	echo "Insert number of reducer:"
+while [[ true ]]; do
+	echo "Insert number of reducer (press enter for default=1):"
 	read REDUCER_NUM
+	if [[ -z "$REDUCER_NUM" ]]; then
+		REDUCER_NUM=1
+		echo "*** default value $REDUCER_NUM choosen!"
+		echo
+		break;
+	elif [[ $REDUCER_NUM =~ $re_num ]]; then
+		break;
+	fi
 done
 
-while ! [[ $ISCOMBINER =~ $re_yn ]]; do
-	echo "Use of combiner (y/n):"
+while [[ true ]]; do
+	echo "Use of combiner (y|n - default=n):"
 	read ISCOMBINER
+	if [[ -z "$ISCOMBINER" ]]; then
+		ISCOMBINER=n
+		echo "*** default value $ISCOMBINER choosen!"
+		echo
+		break;
+	elif [[ $ISCOMBINER =~ $re_yn ]]; then
+		break;
+	fi
 done
 
 echo
