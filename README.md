@@ -20,6 +20,10 @@
 
   * [Exercise 6](#ex6) : Min and Max without custom type
 
+3. Total income for each month + monthly average for each year
+
+  * [Exercise 8](#ex8) : Use of setup an clean up method
+
 
 # Word Count Problem
 
@@ -97,7 +101,7 @@ s1   45.4
 s2   34.3
 ```
 
-## Exercise 6 <a name="ex5v2"></a>
+## Exercise 6 <a name="ex6"></a>
 
 Report, for each sensor, the maximum and the minimum value of PM10
 This version will use a **combiner** but **no custom type**.
@@ -114,4 +118,25 @@ s1,2016-01-01,20.5
 ```
 s1    max=60.2_min=20.5
 s2    max=52.5_min=20.4
+```
+
+## Total income for each month + monthly average for each year
+
+## Exercise 8 <a name="ex8"></a>
+
+Total income for each month of the year and average monthly income per year
+
+### INPUT
+```
+2015-11-01    1000
+2016-01-01    345
+...
+```
+
+### OUTPUT
+```
+2015-11   2305
+2015-12   1250
+2015      1777.5
+2016      1090.00
 ```
