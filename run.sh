@@ -27,7 +27,7 @@ while [[ true ]]; do
 	read EX_VER
 	if [[ -z "$EX_VER" ]]; then
 		EX_VER=1
-		echo "*** default value $EX_VER choosen!"
+		echo "*** default value $EX_VER chosen!"
 		echo
 		break;
 	elif [[ ! -f ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar ]]; then
@@ -44,7 +44,7 @@ while [[ true ]]; do
 	read REDUCER_NUM
 	if [[ -z "$REDUCER_NUM" ]]; then
 		REDUCER_NUM=1
-		echo "*** default value $REDUCER_NUM choosen!"
+		echo "*** default value $REDUCER_NUM chosen!"
 		echo
 		break;
 	elif [[ $REDUCER_NUM =~ $re_num ]]; then
@@ -57,7 +57,7 @@ while [[ true ]]; do
 	read ISCOMBINER
 	if [[ -z "$ISCOMBINER" ]]; then
 		ISCOMBINER=n
-		echo "*** default value $ISCOMBINER choosen!"
+		echo "*** default value $ISCOMBINER chosen!"
 		echo
 		break;
 	elif [[ $ISCOMBINER =~ $re_yn ]]; then
@@ -70,7 +70,7 @@ while [[ true ]]; do
 	read ADD_PAR_COUNT
 	if [[ -z "$ADD_PAR_COUNT" ]]; then
 		ADD_PAR_COUNT=0
-		echo "*** default value $ISCOMBINER choosen!"
+		echo "*** default value $ADD_PAR_COUNT chosen!"
 		echo
 		break
 	elif [[ $REDUCER_NUM =~ $re_num ]]; then

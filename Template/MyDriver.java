@@ -1,9 +1,8 @@
-package it.polito.bigdata.hadoop.ex10;
+package it.polito.bigdata.hadoop.ex;
 
-import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -24,15 +23,24 @@ import org.apache.hadoop.util.ToolRunner;
 public class MyDriver extends Configured implements Tool {
 
 	public static enum MY_COUNTERS {
-		TOT_RECORDS
+		MAPPERS,
+		REDUCERS,
+		COMBINERS,
+		MAPPERS_INPUT,
+		MAPPERS_OUTPUT,
+		COMBINERS_INPUT,
+		COMBINERS_OUTPUT,
+		REDUCERS_INPUT,
+		REDUCERS_OUTPUT
 	}
 
 	@Override
 	public int run(String[] args) throws Exception {
-		int numOfReducers	= Integer.parseInt(args[0]);
-		String isCombiner	= args[1];
-		Path inputPath		= new Path(args[2]);
-		Path outputdir		= new Path(args[3]);
+
+		Path inputPath		= new Path(args[0]);
+		Path outputdir		= new Path(args[1]);
+		int numOfReducers	= Integer.parseInt(args[2]);
+		String isCombiner	= args[3];
 
 		Configuration conf = this.getConf();
 
@@ -40,7 +48,7 @@ public class MyDriver extends Configured implements Tool {
 		Job job = Job.getInstance(conf);
 
 		// Assign a name to the job
-		job.setJobName("Exercise 10");
+		job.setJobName("Exercise xx");
 
 		// Set the path of the input file/folder
 		FileInputFormat.addInputPath(job, inputPath);
@@ -59,7 +67,7 @@ public class MyDriver extends Configured implements Tool {
 		job.setMapperClass(MyMapper.class);
 
 		// Set the mapper output key and value classes
-		job.setMapOutputKeyClass(NullWritable.class);
+		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(NullWritable.class);
 
 		// Set number of reducer
@@ -77,7 +85,7 @@ public class MyDriver extends Configured implements Tool {
 
 		// Set reducer output key and value classes
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
+		job.setOutputValueClass(NullWritable.class);
 
 		// Execute the job and wait for completion
 		if (!job.waitForCompletion(true))
@@ -93,4 +101,5 @@ public class MyDriver extends Configured implements Tool {
 	public static void main(String[] args) throws Exception {
 		System.exit(ToolRunner.run(new Configuration(), new MyDriver(), args));
 	}
+
 }

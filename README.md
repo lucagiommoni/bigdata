@@ -32,6 +32,11 @@
   * [Exercise 8](#ex8) : Use of setup an clean up method
 
 
+4. Dictionary
+
+  * [Exercise 14](#ex14) : 
+
+
 # Word Count Problem
 
 ## Exercise 2 <a name="ex2"></a>
