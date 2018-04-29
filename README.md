@@ -34,7 +34,9 @@
 
 4. Dictionary
 
-  * [Exercise 14](#ex14) : 
+  * [Exercise 14](#ex14) : Use of linked list - NullWritable for the output value
+
+  * [Exercise 15](#ex15) : Each input word is written in the output only once and is associated with a unique identifiers
 
 
 # Word Count Problem
@@ -219,4 +221,55 @@ Total income for each month of the year and average monthly income per year
 2015-12   1250
 2015      1777.5
 2016      1090.00
+```
+
+
+## Dictionary
+
+## Exercise 14 <a name="ex14"></a>
+
+The input words are written in the output only once.
+To reduce network data, the mapper will use a linked list to keep track of each word.
+
+### INPUT
+```
+Toy example
+file for Hadoop
+Hadoop running
+example
+```
+
+### OUTPUT
+```
+example
+file
+for
+hadoop
+running
+toy
+```
+
+## Exercise 15 <a name="ex15"></a>
+
+The input words are written in the output only once and each word is associated with a unique integer.
+To reduce network data, the mapper will use a linked list to keep track of each word.
+
+**NB:** to implement unique identifier a private global `int` variable is used inside MyReducer class; every time a key comes to the reducer, the variable is incremented.
+
+### INPUT
+```
+Toy example
+file for Hadoop
+Hadoop running
+example
+```
+
+### OUTPUT
+```
+example
+file
+for
+hadoop
+running
+toy
 ```

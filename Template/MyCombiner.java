@@ -18,25 +18,28 @@ import it.polito.bigdata.hadoop.ex14.MyDriver.MY_COUNTERS;
 public class MyCombiner extends Reducer<Text, NullWritable, Text, NullWritable> {
 
 	@Override
-	protected void setup(Reducer<Text, NullWritable, Text, NullWritable>.Context context)
+	protected void setup(Context context)
 			throws IOException, InterruptedException {
-		context.getCounter(MY_COUNTERS.REDUCERS).increment(1);
+		context.getCounter(MY_COUNTERS.COMBINERS).increment(1);
 	}
 
 	@Override
-	protected void cleanup(Reducer<Text, NullWritable, Text, NullWritable>.Context context)
+	protected void cleanup(Context context)
 			throws IOException, InterruptedException {
 	}
 
 	@Override
 	@SuppressWarnings("unused")
-	protected void reduce(Text key, Iterable<NullWritable> values,
-			Reducer<Text, NullWritable, Text, NullWritable>.Context context) throws IOException, InterruptedException {
+	protected void reduce(
+			Text key,
+			Iterable<NullWritable> values,
+			Context context)
+			throws IOException, InterruptedException {
 
 		for (NullWritable nullWritable : values) {
-			context.getCounter(MY_COUNTERS.REDUCERS_INPUT).increment(1);
+			context.getCounter(MY_COUNTERS.COMBINERS_INPUT).increment(1);
 		}
-		context.getCounter(MY_COUNTERS.REDUCERS_OUTPUT).increment(1);
+		context.getCounter(MY_COUNTERS.COMBINERS_OUTPUT).increment(1);
 		context.write(key, NullWritable.get());
 	}
 }

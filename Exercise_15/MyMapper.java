@@ -1,4 +1,4 @@
-package it.polito.bigdata.hadoop.ex;
+package it.polito.bigdata.hadoop.ex15;
 
 import java.util.LinkedList;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-import it.polito.bigdata.hadoop.ex14.MyDriver.MY_COUNTERS;
+import it.polito.bigdata.hadoop.ex15.MyDriver.MY_COUNTERS;
 
 /**
  * MyMapper.java
@@ -22,7 +22,7 @@ public class MyMapper extends Mapper<LongWritable, Text, Text, NullWritable> {
 	private LinkedList<String> wordsList;
 
 	@Override
-	protected void setup(Context context)
+	protected void setup(Mapper<LongWritable, Text, Text, NullWritable>.Context context)
 			throws IOException, InterruptedException {
 
 		// Increment counter of mappers' number
@@ -32,7 +32,7 @@ public class MyMapper extends Mapper<LongWritable, Text, Text, NullWritable> {
 	}
 
 	@Override
-	protected void cleanup(Context context)
+	protected void cleanup(Mapper<LongWritable, Text, Text, NullWritable>.Context context)
 			throws IOException, InterruptedException {
 		for (String string : wordsList) {
 			context.getCounter(MY_COUNTERS.MAPPERS_OUTPUT).increment(1);
@@ -44,10 +44,10 @@ public class MyMapper extends Mapper<LongWritable, Text, Text, NullWritable> {
 	protected void map(
 			LongWritable key,
 			Text value,
-			Context context)
+			Mapper<LongWritable, Text, Text, NullWritable>.Context context)
 			throws IOException, InterruptedException {
 		context.getCounter(MY_COUNTERS.MAPPERS_INPUT).increment(1);
-		String[] tmp = value.toString().split("\\s+");
+		String[] tmp = value.toString().toLowerCase().split("\\s+");
 		for (String word : tmp) {
 			if (!this.wordsList.contains(word)) {
 				this.wordsList.add(word);

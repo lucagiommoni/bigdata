@@ -1,12 +1,13 @@
-package it.polito.bigdata.hadoop.ex;
+package it.polito.bigdata.hadoop.ex15;
 
 import java.io.IOException;
 
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-import it.polito.bigdata.hadoop.ex14.MyDriver.MY_COUNTERS;
+import it.polito.bigdata.hadoop.ex15.MyDriver.MY_COUNTERS;
 
 /**
  * MyReducer.java
@@ -15,7 +16,9 @@ import it.polito.bigdata.hadoop.ex14.MyDriver.MY_COUNTERS;
  *
  * Apr 24, 2018
  */
-public class MyReducer extends Reducer<Text, NullWritable, Text, NullWritable> {
+public class MyReducer extends Reducer<Text, NullWritable, Text, IntWritable> {
+	
+	private int id = 0;
 
 	@Override
 	protected void setup(Context context)
@@ -31,15 +34,18 @@ public class MyReducer extends Reducer<Text, NullWritable, Text, NullWritable> {
 	@Override
 	@SuppressWarnings("unused")
 	protected void reduce(
-			Text key,
+			Text key, 
 			Iterable<NullWritable> values,
-			Context context)
-			throws IOException, InterruptedException {
+			Context context) throws IOException, InterruptedException {
 
 		for (NullWritable nullWritable : values) {
 			context.getCounter(MY_COUNTERS.REDUCERS_INPUT).increment(1);
 		}
+		
 		context.getCounter(MY_COUNTERS.REDUCERS_OUTPUT).increment(1);
-		context.write(key, NullWritable.get());
+		
+		id++;
+		
+		context.write(key, new IntWritable(this.id));
 	}
 }
