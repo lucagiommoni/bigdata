@@ -14,6 +14,8 @@
 
   * [Exercise 3](#ex3) : Use of `KeyValueTextInputFormat`
 
+  * [Exercise 4](#ex4) : use of **custom type**
+
   * Exercise 5
 
     * [version 1](#ex5v1)
@@ -99,6 +101,29 @@ s1,2016-01-01   20.5
 ```
 s1   2
 s2   1
+```
+
+## Exercise 4 <a name="ex4"></a>
+
+Report for each zone the list of dates associated with PM10 value above a specific threshold.
+Suppose threshold=50
+N.B.: in this case Reducer is useless because no aggregation is possible after the Mappers
+
+### INPUT
+Structured textual file
+```
+zone1,2016-01-01    20.5
+zone2,2016-01-01    30.1
+zone1,2016-01-02    60.2
+zone2,2016-01-02    20.4
+zone1,2016-01-03    55.5
+zone2,2016-01-03    52.5
+```
+
+### OUTPUT
+```
+zone1   [2016-01-03,2016-01-02]
+zone2   [2016-01-03]
 ```
 
 ## Exercise 5 version 1 <a name="ex5v1"></a>
