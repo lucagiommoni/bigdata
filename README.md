@@ -29,9 +29,11 @@
   * [Exercise 12](#ex12) : **Map Only Job** - _(user provided threshold)_
 
 
-3. Total income for each month + monthly average for each year
+3. Income
 
   * [Exercise 8](#ex8) : Use of setup an clean up method
+
+  * [Exercise 13](#ex13) : **TOP 1** (_custom type_)
 
 
 4. Dictionary
@@ -106,8 +108,10 @@ s2   1
 ## Exercise 4 <a name="ex4"></a>
 
 Report for each zone the list of dates associated with PM10 value above a specific threshold.
+
 Suppose threshold=50
-N.B.: in this case Reducer is useless because no aggregation is possible after the Mappers
+
+N.B.: in this case _Combiner_ is useless because no aggregation is possible after the Mappers
 
 ### INPUT
 Structured textual file
@@ -227,7 +231,7 @@ s2,2016-01-02	20.4
 ```
 
 
-## Total income for each month + monthly average for each year
+## Income
 
 ## Exercise 8 <a name="ex8"></a>
 
@@ -246,6 +250,27 @@ Total income for each month of the year and average monthly income per year
 2015-12   1250
 2015      1777.5
 2016      1090.00
+```
+
+## Exercise 13 <a name="ex13"></a>
+
+Output the couple (date, income) for which income represents the maximum value from the input set
+
+### INPUT
+```
+2015-11-01	1000
+2015-11-02	1305
+2015-12-01	500
+2015-12-02	750
+2016-01-01	345
+2016-01-02	1145
+2016-02-03	200
+2016-02-04	500
+```
+
+### OUTPUT
+```
+2015-11-02	1305
 ```
 
 
