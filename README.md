@@ -3,69 +3,40 @@
 
 ## Exercises:
 
-1. WordCount problem
+2. [Exercise 2](#ex2): [WordCount problem]
 
-  * [Exercise 02](#ex2): all file in a directory
+3. [Exercise 3](#ex3) : [PM10 pollution analysis]
 
-  * [Exercise 09](#ex9) : in-mapper combiner
+4. [Exercise 4](#ex4) : [PM10 pollution analysis; custom type]
 
+5. Exercise 5
 
-2. PM10 pollution analysis
+    * [version 1](#ex5v1) : [PM10 pollution analysis; average]
 
-  * [Exercise 3](#ex3) : Use of `KeyValueTextInputFormat`
+    * [verison 2](#ex5v2) : [PM10 pollution analysis; combiner]
 
-  * [Exercise 4](#ex4) : use of **custom type**
+6. [Exercise 6](#ex6) : [PM10 pollution analysis; min-max]
 
-  * Exercise 5
+7. [Exercise 7](#ex7) : [summarization-pattern:inverted-index]
 
-    * [version 1](#ex5v1)
+8. [Exercise 8](#ex8) : [Income; setup-cleanup]
 
-    * [verison 2](#ex5v2) : use of **combiner**
+3. [Exercise 9](#ex9) : [WordCount problem; in-mapper combiner]
 
-  * [Exercise 6](#ex6) : Min and Max without custom type
+10. [Exercise 10](#ex10) : [PM10 pollution analysis; total count; custom counters]
 
-  * [Exercise 10](#ex10) : Custom counters
+10. [Exercise 11](#ex11) : [PM10 pollution analysis; average; summarization-pattern:numerical-summarization]
 
-  * [Exercise 12](#ex12) : **Map Only Job** - _(user provided threshold)_
+11. [Exercise 12](#ex12) : [PM10 pollution analysis; map-only job; user provided parameter]
 
+13. [Exercise 13](#ex13) : [income; filtering-pattern:topK; custom type]
 
-3. Income
+14. [Exercise 14](#ex14) : [dictionary; filtering-pattern:distinct]
 
-  * [Exercise 8](#ex8) : Use of setup an clean up method
-
-  * [Exercise 13](#ex13) : **TOP 1** (_custom type_)
-
-
-4. Dictionary
-
-  * [Exercise 14](#ex14) : Use of linked list - NullWritable for the output value
-
-  * [Exercise 15](#ex15) : Each input word is written in the output only once and is associated with a unique identifiers
+15. [Exercise 15](#ex15) : [dictionary; filtering-pattern:distinct; unique id]
 
 
-# Word Count Problem
-
-## Exercise 2 <a name="ex2"></a>
-
-Number of occurrences of each word appearing in the input file
-
-### INPUT
-Unstructured textual file
-```
-Test of the word count program
-The word program is the Hadoop hello word program
-Example document for hadoop word count
-```
-
-### OUTPUT
-```
-test    1
-of      1
-the     3
-...
-```
-
-## Exercise 9 <a name="ex9"></a>
+# Exercise 2 <a name="ex2"></a>
 
 Number of occurrences of each word appearing in the input file
 
@@ -86,9 +57,7 @@ the     3
 ```
 
 
-# PM10 Pollution Analysis
-
-## Exercise 3 <a name="ex3"></a>
+# Exercise 3 <a name="ex3"></a>
 
 Report, for each sensor, the number of days with PM10 above a specific threshold (hardcoded)
 
@@ -105,7 +74,8 @@ s1   2
 s2   1
 ```
 
-## Exercise 4 <a name="ex4"></a>
+
+# Exercise 4 <a name="ex4"></a>
 
 Report for each zone the list of dates associated with PM10 value above a specific threshold.
 
@@ -130,6 +100,7 @@ zone1   [2016-01-03,2016-01-02]
 zone2   [2016-01-03]
 ```
 
+
 ## Exercise 5 version 1 <a name="ex5v1"></a>
 
 Report, for each sensor, the average value of PM10
@@ -147,6 +118,7 @@ s1,2016-01-01,20.5
 s1   45.4
 s2   34.3
 ```
+
 
 ## Exercise 5 version 2 <a name="ex5v2"></a>
 
@@ -167,6 +139,7 @@ s1   45.4
 s2   34.3
 ```
 
+
 ## Exercise 6 <a name="ex6"></a>
 
 Report, for each sensor, the maximum and the minimum value of PM10
@@ -186,7 +159,70 @@ s1    max=60.2_min=20.5
 s2    max=52.5_min=20.4
 ```
 
-## Exercise 10 <a name="ex10"></a>
+
+# Exercise 7 <a name="ex7"></a>
+
+Report for each word **w** the list of sentenceID of sentences containing **w**
+
+### INPUT
+```
+Sentence#1	Hadoop or Spark
+Sentence#2	Hadoop or Spark and Java
+Sentence#3	Hadoop and Big Data
+```
+
+### OUTPUT
+```
+hadoop    Sentence#1,Sentence#2,Sentence#3
+spark     Sentence#1,Sentence#2
+java      Sentence#2
+big       Sentence#3
+data      Sentence#3
+```
+
+
+# Exercise 8 <a name="ex8"></a>
+
+Total income for each month of the year and average monthly income per year
+
+### INPUT
+```
+2015-11-01    1000
+2016-01-01    345
+...
+```
+
+### OUTPUT
+```
+2015-11   2305
+2015-12   1250
+2015      1777.5
+2016      1090.00
+```
+
+
+# Exercise 9 <a name="ex9"></a>
+
+Number of occurrences of each word appearing in the input file
+
+### INPUT
+Unstructured textual file
+```
+Test of the word count program
+The word program is the Hadoop hello word program
+Example document for hadoop word count
+```
+
+### OUTPUT
+```
+test    1
+of      1
+the     3
+...
+```
+
+
+# Exercise 10 <a name="ex10"></a>
 
 Total number of records.
 No reducer nor combiner are used; the mapper increment the counter each time it receives an input.
@@ -204,7 +240,30 @@ s1,2016-01-01,20.5
 MYCOUNTERS.TOT_RECORDS = 6
 ```
 
-## Exercise 12 <a name="ex12"></a>
+
+# Exercise 11 <a name="ex11"></a>
+
+Report for each sensor the average value of PM10
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s1,2016-01-02,30.1
+s2,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+
+```
+
+### OUTPUT
+```
+s1    45,4 
+s2    34,3
+```
+
+
+# Exercise 12 <a name="ex12"></a>
 
 Output are records with a PM10 value below a **user provided** _(arguments of program)_ threshold.
 **No Reducer**
@@ -231,28 +290,7 @@ s2,2016-01-02	20.4
 ```
 
 
-## Income
-
-## Exercise 8 <a name="ex8"></a>
-
-Total income for each month of the year and average monthly income per year
-
-### INPUT
-```
-2015-11-01    1000
-2016-01-01    345
-...
-```
-
-### OUTPUT
-```
-2015-11   2305
-2015-12   1250
-2015      1777.5
-2016      1090.00
-```
-
-## Exercise 13 <a name="ex13"></a>
+# Exercise 13 <a name="ex13"></a>
 
 Output the couple (date, income) for which income represents the maximum value from the input set
 
@@ -267,16 +305,13 @@ Output the couple (date, income) for which income represents the maximum value f
 2016-02-03	200
 2016-02-04	500
 ```
-
 ### OUTPUT
 ```
 2015-11-02	1305
 ```
 
 
-## Dictionary
-
-## Exercise 14 <a name="ex14"></a>
+# Exercise 14 <a name="ex14"></a>
 
 The input words are written in the output only once.
 To reduce network data, the mapper will use a linked list to keep track of each word.
@@ -299,7 +334,7 @@ running
 toy
 ```
 
-## Exercise 15 <a name="ex15"></a>
+# Exercise 15 <a name="ex15"></a>
 
 The input words are written in the output only once and each word is associated with a unique integer.
 To reduce network data, the mapper will use a linked list to keep track of each word.

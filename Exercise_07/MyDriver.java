@@ -1,11 +1,14 @@
-package it.polito.bigdata.hadoop.ex;
+package it.polito.bigdata.hadoop.ex7;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.*;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.*;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
@@ -14,10 +17,9 @@ import org.apache.hadoop.util.ToolRunner;
  *
  * @version 1.0
  *
+ * Apr 24, 2018
  */
 public class MyDriver extends Configured implements Tool {
-
-	public static enum MY_COUNTERS {}
 
 	@Override
 	public int run(String[] args) throws Exception {
@@ -33,7 +35,7 @@ public class MyDriver extends Configured implements Tool {
 		Job job = Job.getInstance(conf);
 
 		// Assign a name to the job
-		job.setJobName("Exercise xx");
+		job.setJobName("Exercise 07");
 
 		// Set the path of the input file/folder
 		FileInputFormat.addInputPath(job, inputPath);
@@ -45,7 +47,7 @@ public class MyDriver extends Configured implements Tool {
 		job.setJarByClass(MyDriver.class);
 
 		// Set the job input and  output format
-		job.setInputFormatClass(TextInputFormat.class);
+		job.setInputFormatClass(KeyValueTextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
 
 		// Set the mapper class
@@ -53,7 +55,7 @@ public class MyDriver extends Configured implements Tool {
 
 		// Set the mapper output key and value classes
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(NullWritable.class);
+		job.setMapOutputValueClass(Text.class);
 
 		// Set number of reducer
 		job.setNumReduceTasks(numOfReducers);
@@ -70,16 +72,12 @@ public class MyDriver extends Configured implements Tool {
 
 		// Set reducer output key and value classes
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(NullWritable.class);
+		job.setOutputValueClass(Text.class);
 
 		// Execute the job and wait for completion
 		if (!job.waitForCompletion(true))
 			return 1;
-
-		for (MY_COUNTERS c : MY_COUNTERS.values()) {
-			System.out.println(c.name() + " = " + job.getCounters().findCounter(c).getValue());
-		}
-
+		
 		return 0;
 	}
 
