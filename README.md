@@ -35,6 +35,8 @@
 
 15. [Exercise 15](#ex15) : [dictionary; filtering-pattern:distinct; unique id]
 
+17. [Exercise 17](#ex17) : [multiple input; filtering pattern:filtering]
+
 
 # Exercise 2 <a name="ex2"></a>
 
@@ -357,4 +359,33 @@ for
 hadoop
 running
 toy
+```
+
+
+# Exercise 17 <a name="ex17"></a>
+
+## Select maximum temperature for each date
+
+Output the max temp for each date, considering the data of every input file
+
+### INPUT
+```
+File#1
+s1,2016-01-01,14:00,20.5
+s2,2016-01-01,14:00,30.2
+s1,2016-01-02,14:10,11.5
+s2,2016-01-02,14:10,30.2
+
+File#2
+2016-01-01,14:00,20.1,s3
+2016-01-01,14:00,10.2,s4
+2016-01-02,14:15,31.5,s3
+2016-01-02,14:15,20.2,s4
+
+```
+
+### OUTPUT
+```
+2016-01-01    30.2
+2016-01-02    31.5
 ```

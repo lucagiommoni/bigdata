@@ -1,4 +1,4 @@
-package it.polito.bigdata.hadoop.ex;
+package it.polito.bigdata.hadoop.ex17;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
@@ -22,43 +22,35 @@ public class MyDriver extends Configured implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
+		
+		for (String string : args) {
+			System.out.println(string);			
+		}
 
 		int numOfReducers	= Integer.parseInt(args[0]);
 		Path outputdir		= new Path(args[1]);
 		Path inputPath1		= new Path(args[2]);
-		// Path inputPath2		= new Path(args[3]);
+		Path inputPath2		= new Path(args[3]);
 
 		Configuration conf = this.getConf();
-
-		// Define a new job
 		Job job = Job.getInstance(conf);
-
-		// Assign a name to the job
-		job.setJobName("Exercise xx");
-
-		// Specify the class of the driver
+		
+		job.setJobName("Exercise 17");
 		job.setJarByClass(MyDriver.class);
 
 		// Set the path of the input file/folder
-		FileInputFormat.addInputPath(job, inputPath1);
-		job.setInputFormatClass(TextInputFormat.class);
-
-		// Set multiple input files
-		// MultipleInputs.addInputPath(job, inputPath1, TextInputFormat.class, MyMapper1.class);
-    // MultipleInputs.addInputPath(job, inputPath2, TextInputFormat.class, MyMapper2.class);
+		MultipleInputs.addInputPath(job, inputPath1, TextInputFormat.class, MyMapper1.class);
+	    MultipleInputs.addInputPath(job, inputPath2, TextInputFormat.class, MyMapper2.class);		
 
 		// Set the path of the output folder
 		FileOutputFormat.setOutputPath(job, outputdir);
-
-		// Set the job output format
 		job.setOutputFormatClass(TextOutputFormat.class);
-
-		// Set the mapper class
-		job.setMapperClass(MyMapper.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(FloatWritable.class);
 
 		// Set the mapper output key and value classes
 		job.setMapOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(NullWritable.class);
+		job.setMapOutputValueClass(FloatWritable.class);
 
 		// Set number of reducer
 		job.setNumReduceTasks(numOfReducers);
@@ -67,13 +59,6 @@ public class MyDriver extends Configured implements Tool {
 		if (numOfReducers != 0) {
 		  job.setReducerClass(MyReducer.class);
 		}
-
-		// Set combiner class
-		job.setCombinerClass(MyCombiner.class);
-
-		// Set reducer output key and value classes
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(NullWritable.class);
 
 		// Execute the job and wait for completion
 		if (!job.waitForCompletion(true))
