@@ -18,15 +18,14 @@ import org.apache.hadoop.util.ToolRunner;
  *
  * @version 1.0
  *
- * Apr 24, 2018
  */
 public class MyDriver extends Configured implements Tool{
 
 	@Override
 	public int run(String[] args) throws Exception {
-		int numOfReducers = Integer.parseInt(args[0]);
-		Path inputPath = new Path(args[1]);
-		Path outputdir = new Path(args[2]);
+		Path inputPath		= new Path(args[0]);
+		Path outputdir		= new Path(args[1]);
+		int numOfReducers = 1;
 
 		Configuration conf = this.getConf();
 

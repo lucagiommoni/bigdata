@@ -25,7 +25,7 @@
 
 10. [Exercise 10](#ex10) : [PM10 pollution analysis; total count; custom counters]
 
-10. [Exercise 11](#ex11) : [PM10 pollution analysis; average; summarization-pattern:numerical-summarization]
+10. [Exercise 11](#ex11) : [PM10 pollution analysis; average; summarization-pattern:numerical-summarization; custom-type; in-mapper combiner]
 
 11. [Exercise 12](#ex12) : [PM10 pollution analysis; map-only job; user provided parameter]
 
@@ -258,8 +258,8 @@ s2,2016-01-03,52.5
 
 ### OUTPUT
 ```
-s1    45,4 
-s2    34,3
+s1    44,4
+s2    35,4
 ```
 
 

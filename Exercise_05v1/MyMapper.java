@@ -12,7 +12,6 @@ import org.apache.hadoop.mapreduce.Mapper;
  *
  * @version 1.0
  *
- * Apr 24, 2018
  */
 public class MyMapper extends Mapper<LongWritable, Text, Text, DoubleWritable> {
 

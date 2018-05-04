@@ -11,12 +11,15 @@ import org.apache.hadoop.mapreduce.Reducer;
  *
  * @version 1.0
  *
- * Apr 24, 2018
  */
 public class MyReducer extends Reducer<Text, DoubleWritable, Text, DoubleWritable> {
 
 	@Override
-	protected void reduce(Text key, Iterable<DoubleWritable> values, Reducer<Text, DoubleWritable, Text, DoubleWritable>.Context context) throws IOException, InterruptedException {
+	protected void reduce(
+			Text key,
+			Iterable<DoubleWritable> values,
+			Context context
+		) throws IOException, InterruptedException {
 
 		int count = 0;
 		double sum = 0;
