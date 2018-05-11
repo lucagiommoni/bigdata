@@ -171,7 +171,7 @@ echo "OUTPUT FILE"
 hdfs dfs -ls -h /user/${USER}/output
 echo
 echo "OUTPUT CONTENT"
-hdfs dfs -cat /user/${USER}/output/part-r-*
+hdfs dfs -cat /user/${USER}/output/part-*
 echo
 echo
 # Remove directory relative to the exercise

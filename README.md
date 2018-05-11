@@ -37,6 +37,10 @@
 
 17. [Exercise 17](#ex17) : [multiple input; filtering pattern:filtering]
 
+18. [Exercise 18](#ex18) : [PM10 pollution analysis; filtering pattern:filtering]
+
+19. [Exercise 19](#ex19) : [PM10 pollution analysis; filtering pattern:filtering]
+
 
 # Exercise 2 <a name="ex2"></a>
 
@@ -388,4 +392,48 @@ File#2
 ```
 2016-01-01    30.2
 2016-01-02    31.5
+```
+
+
+# Exercise 18 <a name="ex18"></a>
+
+## Filter the readings of a set of sensors based on the value of the measurement
+
+The output is represented by lines of the input files associated with a temperature greater than 30.0
+
+### INPUT
+```
+s1,2016-01-01,14:00,20.5
+s2,2016-01-01,14:00,30.2
+s1,2016-01-02,14:10,11.5
+s2,2016-01-02,14:10,30.2
+
+```
+
+### OUTPUT
+```
+s2,2016-01-01,14:00,30.2
+s2,2016-01-02,14:10,30.2
+```
+
+
+# Exercise 19 <a name="ex19"></a>
+
+## Filter the readings of a set of sensors based on the value of the measurement
+
+The output is represented by lines of the input files associated with a temperature less than 30.0
+
+### INPUT
+```
+s1,2016-01-01,14:00,20.5
+s2,2016-01-01,14:00,30.2
+s1,2016-01-02,14:10,11.5
+s2,2016-01-02,14:10,30.2
+
+```
+
+### OUTPUT
+```
+s1,2016-01-01,14:00,20.5
+s1,2016-01-02,14:10,11.5
 ```
