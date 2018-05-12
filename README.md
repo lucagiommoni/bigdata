@@ -45,6 +45,20 @@
 
 21. [Exercise 21](#ex21) : [filtering pattern:filtering; distributed cache]
 
+22. [Exercise 22](#ex22) : [additional parameter]
+
+23. [Exercise 23 version 2](#ex23v2) : [additional parameter]
+
+24. [Exercise 24](#ex24)
+
+25. [Exercise 25](#ex25) : [two job]
+
+26. [Exercise 26](#ex26) : [distributed cache]
+
+27. [Exercise 27](#ex27) :
+
+29. [Exercise 29](#ex29) :
+
 
 # Exercise 2 <a name="ex2"></a>
 
@@ -517,3 +531,169 @@ This is first sentence contains some stopwords
 Second sentence with stopword here another here
 Third sentence stopword example
 ```
+
+
+# Exercise 22 <a name="ex22"></a>
+
+## Friends of a specific user
+
+Each line of the input file represents a couple of friends.
+
+The username used to find friends is passed as parameter.
+
+### INPUT
+```
+User1,User2
+User1,User3
+User1,User4
+User2,User5
+```
+
+### OUTPUT
+```
+User1,User5
+```
+
+
+# Exercise 23 version 2 <a name="ex23v2"></a>
+
+## Potential friends of a specific user
+
+Each line of the input file represents a couple of friends.
+
+The username used to find friends is passed as parameter.
+
+The output is a comma-separated list of users that can be potential friend of the user passed as parameter.
+
+User 1 is a potential friend of User2 if they have at least one friend in common.
+
+### INPUT
+```
+User1,User2
+User1,User3
+User1,User4
+User2,User3
+User2,User4
+User2,User5
+User5,User6
+```
+
+### OUTPUT (for User2)
+```
+User6
+```
+
+
+# Exercise 24 <a name="ex24"></a>
+
+## Compute the list of friends for each user
+
+### INPUT
+```
+User1,User2
+User1,User3
+User1,User4
+User2,User3
+User2,User4
+User2,User5
+User5,User6
+```
+
+### OUTPUT
+```
+user1   user2,user3,user4
+user2   user1,user3,user4,user5
+user3   user1,user2
+user4   user1,user2
+user5   user2,user6
+user6   user5
+```
+
+
+# Exercise 25 <a name="ex25"></a>
+
+## Compute the list of potential friends for each user
+
+### INPUT
+```
+User1,User2
+User1,User3
+User1,User4
+User2,User3
+User2,User4
+User2,User5
+User5,User6
+```
+
+### OUTPUT
+```
+user1   user5
+user2   user6
+user3   user5,user4
+user4   user5,user3
+user5   user1,user3,user4
+user6   user2
+```
+
+
+# Exercise 26 <a name="ex25"></a>
+
+## Word (string) to integer conversion
+
+2 input files:
+
+- Large textual file
+
+- Small dictionary file
+
+The output file is a textual file containing the content of the input large textual file, where each word is replaced with the correspondent number written into input small dictionary file.
+
+### INPUT
+```
+LARGE TEXTUAL FILE
+------------------
+TEST CONVERTION WORD TO INTEGER
+SECOND LINE TEST WORD TO INTEGER
+
+SMALL DICTIONARY FILE
+---------------------
+1	CONVERTION
+2	INTEGER
+3	LINE
+4	SECOND
+5	TEST
+6	TO
+7	WORD
+```
+
+### OUTPUT
+```
+5 1 7 6 2
+4 3 5 7 6 2
+```
+
+# Exercise 26 <a name="ex26"></a>
+
+##
+
+### INPUT
+
+### OUTPUT
+
+
+# Exercise 27 <a name="ex27"></a>
+
+##
+
+### INPUT
+
+### OUTPUT
+
+
+# Exercise 29 <a name="ex29"></a>
+
+##
+
+### INPUT
+
+### OUTPUT

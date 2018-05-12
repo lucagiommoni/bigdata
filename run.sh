@@ -149,11 +149,13 @@ echo
 # Copy into the directory the directory with data files
 hdfs dfs -put ex${EX_NUM}/data /user/${USER}
 echo
-echo "hdfs dfs -put ex${EX_NUM}/cache /user/${USER}"
-echo
-# Copy into the directory the directory with cached files
-hdfs dfs -put ex${EX_NUM}/cache /user/${USER}
-echo
+if [[ -d ex${EX_NUM}/cache ]]; then
+	echo "hdfs dfs -put ex${EX_NUM}/cache /user/${USER}"
+	echo
+	# Copy into the directory the directory with cached files
+	hdfs dfs -put ex${EX_NUM}/cache /user/${USER}
+	echo
+fi
 # echo "hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver $REDUCER_NUM $ISCOMBINER "/user/${USER}/output" "$INPUT" $ADD_PAR"
 ACT="hadoop jar ex${EX_NUM}/ex${EX_NUM}-${EX_VER}.jar it.polito.bigdata.hadoop.ex${EX_NUM}.MyDriver $REDUCER_NUM /user/${USER}/output $INPUT $ADD_PAR"
 echo "$ACT"
