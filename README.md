@@ -55,9 +55,11 @@
 
 26. [Exercise 26](#ex26) : [distributed cache]
 
-27. [Exercise 27](#ex27) :
+27. [Exercise 27](#ex27) : [distributed cache; category]
 
-29. [Exercise 29](#ex29) :
+28. [Exercise 28](#ex28) : [multiple input; join]
+
+29. [Exercise 29](#ex29) : [multiple input; join]
 
 
 # Exercise 2 <a name="ex2"></a>
@@ -636,7 +638,7 @@ user6   user2
 ```
 
 
-# Exercise 26 <a name="ex25"></a>
+# Exercise 26 <a name="ex26"></a>
 
 ## Word (string) to integer conversion
 
@@ -672,28 +674,103 @@ SMALL DICTIONARY FILE
 4 3 5 7 6 2
 ```
 
-# Exercise 26 <a name="ex26"></a>
-
-##
-
-### INPUT
-
-### OUTPUT
-
 
 # Exercise 27 <a name="ex27"></a>
 
-##
+## Categorization Rules
+
+Output: one record for each user with the following format
+
+- the original information of the user plus the category assigned to the user
+
+- there is at most one rule applicable to each user
+
+- if no rule is applicable, the user is assigned to the _unknown_ category
 
 ### INPUT
+```
+USERS
+-----
+User#1,John,Smith,M,1934,New York,Bachelor
+User#2,Paul,Jones,M,1956,Dallas,College
+User#3,Jenny,Smith,F,1934,Philadelphia,Bachelor
+User#4,Laura,White,F,1926,New York,Doctorate
+
+CATEGORIES
+----------
+Gender=M and YearOfBirth=1934 -> Category#1
+Gender=M and YearOfBirth=1956 -> Category#3
+Gender=F and YearOfBirth=1934 -> Category#2
+Gender=F and YearOfBirth=1956 -> Category#3
+```
 
 ### OUTPUT
+```
+User#1,John,Smith,M,1934,New York,Bachelor,Category#1
+User#2,Paul,Jones,M,1956,Dallas,College,Category#3
+User#3,Jenny,Smith,F,1934,Philadelphia,Bachelor,Category#2
+User#4,Laura,White,F,1926,New York,Doctorate,Unknown
+```
+
+
+# Exercise 28 <a name="ex28"></a>
+
+## Mapping: Questions-Answers
+
+### INPUT
+```
+QUESTIONS
+---------
+Q1,2015-01-01,What is ..?
+Q2,2015-01-03,Who invented ..
+
+ANSWERS
+-------
+A1,Q1,2015-01-02,It is ..
+A2,Q2,2015-01-03,John Smith
+A3,Q1,2015-01-05,I think it is ..
+```
+
+### OUTPUT
+```
+Q1,What is ..?,A1,It is ..
+Q2,Who invented ..,A2,John Smith
+Q1,What is ..?,A3,I think it is ..
+```
 
 
 # Exercise 29 <a name="ex29"></a>
 
-##
+## User selection
+
+- One record for each user that likes both Commedia and Adventure movies
+
+- Each output record contains only Gender and YearOfBirth
+
+- Duplicate pairs must not be removed
 
 ### INPUT
+```
+USERS
+-----
+User#1,John,Smith,M,1934,New York,Bachelor
+User#2,Paul,Jones,M,1956,Dallas,College
+User#3,Jenny,Smith,F,1934,Philadelphia,Bachelor
+
+LIKES
+-----
+User#1,Commedia
+User#1,Adventure
+User#1,Drama
+User#2,Commedia
+User#2,Crime
+User#3,Commedia
+User#3,Horror
+User#3,Adventure
+```
 
 ### OUTPUT
+```
+M,1934
+F,1934
+```
