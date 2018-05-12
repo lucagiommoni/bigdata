@@ -41,6 +41,8 @@
 
 19. [Exercise 19](#ex19) : [PM10 pollution analysis; filtering pattern:filtering]
 
+20. [Exercise 20](#ex20) : [PM10 pollution analysis; filtering pattern:filtering; multiple outputs]
+
 
 # Exercise 2 <a name="ex2"></a>
 
@@ -434,6 +436,39 @@ s2,2016-01-02,14:10,30.2
 
 ### OUTPUT
 ```
+s1,2016-01-01,14:00,20.5
+s1,2016-01-02,14:10,11.5
+```
+
+
+# Exercise 20 <a name="ex20"></a>
+
+## Split the readings of a set of sensors based on the value of the measurement
+
+Output files:
+
+- hightemp-##: a subset of input lines, from the input files, associated with a temperature greater than 30.0
+
+- normaltemp-##: a subset of input lines, from the input files, associated with a temperature less than 30.0
+
+N.B.: The threshold is hardcoded
+
+### INPUT
+```
+s1,2016-01-01,14:00,20.5
+s2,2016-01-01,14:00,30.2
+s1,2016-01-02,14:10,11.5
+s2,2016-01-02,14:10,30.2
+
+```
+
+### OUTPUT
+```
+File#1
+s2,2016-01-01,14:00,30.2
+s2,2016-01-02,14:10,30.2
+
+File#2
 s1,2016-01-01,14:00,20.5
 s1,2016-01-02,14:10,11.5
 ```

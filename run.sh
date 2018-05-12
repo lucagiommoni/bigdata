@@ -126,9 +126,8 @@ else
 	INPUT="/user/${USER}/data"
 fi
 
-echo "This is the multiple input"
+echo "Do you confirm the following input(s)? (default=y)"
 echo "$INPUT"
-echo "It's right? (y)"
 while [[ true ]]; do
 	read ANSWER
 	if [[ -z $ANSWER ]] || [[ "${ANSWER,,}" == "y" ]]; then
@@ -171,9 +170,13 @@ echo "OUTPUT FILE"
 hdfs dfs -ls -h /user/${USER}/output
 echo
 echo "OUTPUT CONTENT"
-hdfs dfs -cat /user/${USER}/output/part-*
 echo
-echo
+for filename in $( hdfs dfs -ls -C /user/${USER}/output/*); do
+	echo $filename
+	echo "---------------"
+	hdfs dfs -cat $filename
+	echo
+done
 # Remove directory relative to the exercise
 hdfs dfs -rm -r -f /user/${USER}/*
 
