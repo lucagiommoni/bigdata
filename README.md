@@ -43,6 +43,8 @@
 
 20. [Exercise 20](#ex20) : [PM10 pollution analysis; filtering pattern:filtering; multiple outputs]
 
+21. [Exercise 21](#ex21) : [filtering pattern:filtering; distributed cache]
+
 
 # Exercise 2 <a name="ex2"></a>
 
@@ -471,4 +473,47 @@ s2,2016-01-02,14:10,30.2
 File#2
 s1,2016-01-01,14:00,20.5
 s1,2016-01-02,14:10,11.5
+```
+
+
+# Exercise 21 <a name="ex21"></a>
+
+## Stopword elimination problem
+
+Output file:
+textual file containing the same sentences of the _large input file_ without the word appearing in the _stopword file_
+
+N.B.: the order of the sentences in the output file can be different from the order of the sentences in the input file
+
+### INPUT
+```
+Large File
+----------
+This is the first sentence and it contains some stopwords
+Second sentence with a stopword here and another here
+Third sentence of the stopword example
+
+
+Stopword File
+-------------
+a
+an
+and
+or
+i
+you
+we
+he
+she
+they
+it
+of
+the
+```
+
+### OUTPUT
+```
+This is first sentence contains some stopwords
+Second sentence with stopword here another here
+Third sentence stopword example
 ```
