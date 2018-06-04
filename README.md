@@ -61,6 +61,76 @@
 
 29. [Exercise 29](#ex29) : [multiple input; join]
 
+30. [Exercise 30](#ex30) : [filter]
+
+31. [Exercise 31](#ex31) : [map]
+
+32. Exercise 32:
+
+  * [version 1](#ex32v1) : [map; reduce]
+
+  * [version 2](#ex32v2) : [dataframe]
+
+  * [version 3](#ex32v3) : [dataset]
+
+  * [version 4](#ex32v4) : [sql]
+
+  * [version 5](#ex32v5) : [top]
+
+33. Exercise 33:
+
+  * [version 1](#ex33v1) : [map; reduce]
+
+  * [version 2](#ex33v2) : [dataframe]
+
+  * [version 3](#ex33v3) : [dataset]
+
+  * [version 4](#ex33v4) : [sql]
+
+34. Exercise 32:
+
+  * [version 1](#ex34v1) : [map; reduce]
+
+  * [version 2](#ex34v2) : [cache]
+
+  * [version 3](#ex34v3) : [dataframe]
+
+  * [version 4](#ex34v4) : [dataset]
+
+  * [version 5](#ex34v5) : [sql]
+
+35. [Exercise 35](#ex35) :
+
+36. [Exercise 36](#ex36) :
+
+37. [Exercise 37](#ex37) :
+
+38. [Exercise 38](#ex38) :
+
+39. [Exercise 39](#ex39) :
+
+40. [Exercise 40](#ex40) :
+
+41. [Exercise 41](#ex41) :
+
+42. [Exercise 42](#ex42) :
+
+43. [Exercise 43](#ex43) :
+
+44. [Exercise 44](#ex44) :
+
+45. [Exercise 45](#ex45) :
+
+46. [Exercise 46](#ex46) :
+
+47. [Exercise 47](#ex47) :
+
+48. [Exercise 48](#ex48) :
+
+49. [Exercise 49](#ex49) :
+
+50. [Exercise 50](#ex50) :
+
 
 # Exercise 2 <a name="ex2"></a>
 
