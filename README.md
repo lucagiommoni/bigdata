@@ -87,11 +87,11 @@
 
   * [version 4](#ex33v4) : [sql]
 
-34. Exercise 32:
+34. Exercise 34:
 
-  * [version 1](#ex34v1) : [map; reduce]
+  * [version 1](#ex34v1) : [map; reduce; filter]
 
-  * [version 2](#ex34v2) : [cache]
+  * [version 2](#ex34v2) : [map; reduce; filter; cache]
 
   * [version 3](#ex34v3) : [dataframe]
 
@@ -1057,4 +1057,124 @@ s2,2016-01-03,52.5
 60.2
 55.5
 52.5
+```
+
+
+# Exercise 34 version 1 <a name="ex33v1"></a>
+
+## Description
+
+Report the line(s) associated with the maximum value of PM10
+Use map, reduce and filter
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+s1,2016-01-02,60.2
+s1,2016-01-03,60.2
+```
+
+
+# Exercise 34 version 2 <a name="ex33v2"></a>
+
+## Description
+
+Report the line(s) associated with the maximum value of PM10
+Use cache, map, reduce and filter
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+s1,2016-01-02,60.2
+s1,2016-01-03,60.2
+```
+
+
+# Exercise 34 version 3 <a name="ex33v3"></a>
+
+## Description
+
+Report the line(s) associated with the maximum value of PM10
+Use dataframe
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+s1,2016-01-02,60.2
+s1,2016-01-03,60.2
+```
+
+
+# Exercise 34 version 4 <a name="ex33v4"></a>
+
+## Description
+
+Report the line(s) associated with the maximum value of PM10
+Use dataset
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+s1,2016-01-02,60.2
+s1,2016-01-03,60.2
+```
+
+
+# Exercise 34 version 5 <a name="ex33v5"></a>
+
+## Description
+
+Report the line(s) associated with the maximum value of PM10
+Use sql 
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+s1,2016-01-02,60.2
+s1,2016-01-03,60.2
 ```
