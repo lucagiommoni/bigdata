@@ -79,15 +79,13 @@
 
 33. Exercise 33:
 
-  * [version 1](#ex33v1) : [map; reduce]
+  * [version 1](#ex33v1) : [map; topK]
 
   * [version 2](#ex33v2) : [dataframe]
 
   * [version 3](#ex33v3) : [dataset]
 
   * [version 4](#ex33v4) : [sql]
-
-  * [version 5](#ex33v5) : [map; topK]
 
 34. Exercise 32:
 
@@ -959,6 +957,7 @@ s2,2016-01-03,52.5
 ```
 60.2
 ```
+<<<<<<< HEAD
 
 
 # Exercise 33 version 1 <a name="ex33v1"></a>
@@ -981,4 +980,81 @@ s2,2016-01-03,52.5
 ### OUTPUT
 ```
 60.2
+55.5
+52.5
+```
+
+
+# Exercise 33 version 2 <a name="ex33v2"></a>
+
+## Description
+
+Report the top-3 maximum values of PM10
+Use dataframe
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+55.5
+52.5
+```
+
+
+# Exercise 33 version 3 <a name="ex33v3"></a>
+
+## Description
+
+Report the top-3 maximum values of PM10
+Use dataset
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+55.5
+52.5
+```
+
+
+# Exercise 33 version 4 <a name="ex33v4"></a>
+
+## Description
+
+Report the top-3 maximum values of PM10
+Use sql
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
+s1,2016-01-02,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+55.5
+52.5
 ```
