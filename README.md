@@ -49,7 +49,7 @@
 
 23. [Exercise 23 version 2](#ex23v2) : [additional parameter]
 
-24. [Exercise 24](#ex24)
+24. [Exercise 24](#ex24) : []
 
 25. [Exercise 25](#ex25) : [two job]
 
@@ -843,4 +843,117 @@ User#3,Adventure
 ```
 M,1934
 F,1934
+```
+
+
+# Exercise 32 version 1 <a name="ex32v1"></a>
+
+## Description
+
+Extract maximum value of pollution from CSV file using map and reduce function
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-02,30.1
+s1,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+```
+
+
+# Exercise 32 version 2 <a name="ex32v2"></a>
+
+## Description
+
+Extract maximum value of pollution from CSV file using **DataFrame**.
+Use `max(String colName)` aggregate function.
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-02,30.1
+s1,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+```
+
+
+# Exercise 32 version 3 <a name="ex32v3"></a>
+
+## Description
+
+Extract maximum value of pollution from CSV file using **DataSet**.
+Use a new class _Pollution_ to encode DataFrame.
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-02,30.1
+s1,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+```
+
+
+# Exercise 32 version 4 <a name="ex32v4"></a>
+
+## Description
+
+Extract maximum value of pollution from CSV file using **SQL** on **DataSet**.
+Use a new class _Pollution_ to encode DataFrame.
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-02,30.1
+s1,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
+```
+
+
+# Exercise 32 version 5 <a name="ex32v5"></a>
+
+## Description
+
+Extract maximum value of pollution from CSV file using **TOP** on JavaRDD.
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-02,30.1
+s1,2016-01-01,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+60.2
 ```
