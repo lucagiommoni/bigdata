@@ -65,41 +65,49 @@
 
 31. [Exercise 31](#ex31) : [map]
 
-32. Exercise 32:
+32. [Exercise 32](#ex32):
 
-  * [version 1](#ex32v1) : [map; reduce]
+  * version 1 : [map; reduce]
 
-  * [version 2](#ex32v2) : [dataframe]
+  * version 2 : [dataframe]
 
-  * [version 3](#ex32v3) : [dataset]
+  * version 3 : [dataset]
 
-  * [version 4](#ex32v4) : [sql]
+  * version 4 : [sql]
 
-  * [version 5](#ex32v5) : [map; topK]
+  * version 5 : [map; topK]
 
-33. Exercise 33:
+33. [Exercise 33](#ex33):
 
-  * [version 1](#ex33v1) : [map; topK]
+  * version 1 : [map; topK]
 
-  * [version 2](#ex33v2) : [dataframe]
+  * version 2 : [dataframe]
 
-  * [version 3](#ex33v3) : [dataset]
+  * version 3 : [dataset]
 
-  * [version 4](#ex33v4) : [sql]
+  * version 4 : [sql]
 
-34. Exercise 34:
+34. [Exercise 34](#ex34):
 
-  * [version 1](#ex34v1) : [map; reduce; filter]
+  * version 1 : [map; reduce; filter]
 
-  * [version 2](#ex34v2) : [map; reduce; filter; cache]
+  * version 2 : [map; reduce; filter; cache]
 
-  * [version 3](#ex34v3) : [dataframe]
+  * version 3 : [dataframe]
 
-  * [version 4](#ex34v4) : [dataset]
+  * version 4 : [dataset]
 
-  * [version 5](#ex34v5) : [sql]
+  * version 5 : [sql]
 
-35. [Exercise 35](#ex35) :
+35. [Exercise 35](#ex35):
+
+  * version 1 : [map; reduce; filter]
+
+  * version 2 : [dataframe]
+
+  * version 3 : [dataset]
+
+  * version 4 : [sql]
 
 36. [Exercise 36](#ex36) :
 
@@ -846,7 +854,7 @@ F,1934
 ```
 
 
-# Exercise 32 version 1 <a name="ex32v1"></a>
+# Exercise 32 <a name="ex32"></a>
 
 ## Description
 
@@ -868,104 +876,11 @@ s2,2016-01-03,52.5
 ```
 
 
-# Exercise 32 version 2 <a name="ex32v2"></a>
-
-## Description
-
-Extract maximum value of pollution from CSV file using **DataFrame**.
-Use `max(String colName)` aggregate function.
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-02,30.1
-s1,2016-01-01,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-```
-
-
-# Exercise 32 version 3 <a name="ex32v3"></a>
-
-## Description
-
-Extract maximum value of pollution from CSV file using **DataSet**.
-Use a new class _Pollution_ to encode DataFrame.
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-02,30.1
-s1,2016-01-01,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-```
-
-
-# Exercise 32 version 4 <a name="ex32v4"></a>
-
-## Description
-
-Extract maximum value of pollution from CSV file using **SQL** on **DataSet**.
-Use a new class _Pollution_ to encode DataFrame.
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-02,30.1
-s1,2016-01-01,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-```
-
-
-# Exercise 32 version 5 <a name="ex32v5"></a>
-
-## Description
-
-Extract maximum value of pollution from CSV file using **TOP** on JavaRDD.
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-02,30.1
-s1,2016-01-01,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-```
-<<<<<<< HEAD
-
-
-# Exercise 33 version 1 <a name="ex33v1"></a>
+# Exercise 33 <a name="ex33"></a>
 
 ## Description
 
 Report the top-3 maximum values of PM10
-Use **map** and **topK** methods of _JavaRDD_
 
 ### INPUT
 ```
@@ -985,87 +900,11 @@ s2,2016-01-03,52.5
 ```
 
 
-# Exercise 33 version 2 <a name="ex33v2"></a>
-
-## Description
-
-Report the top-3 maximum values of PM10
-Use dataframe
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-55.5
-52.5
-```
-
-
-# Exercise 33 version 3 <a name="ex33v3"></a>
-
-## Description
-
-Report the top-3 maximum values of PM10
-Use dataset
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-55.5
-52.5
-```
-
-
-# Exercise 33 version 4 <a name="ex33v4"></a>
-
-## Description
-
-Report the top-3 maximum values of PM10
-Use sql
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-60.2
-55.5
-52.5
-```
-
-
-# Exercise 34 version 1 <a name="ex33v1"></a>
+# Exercise 34 <a name="ex34"></a>
 
 ## Description
 
 Report the line(s) associated with the maximum value of PM10
-Use map, reduce and filter
 
 ### INPUT
 ```
@@ -1084,84 +923,11 @@ s1,2016-01-03,60.2
 ```
 
 
-# Exercise 34 version 2 <a name="ex33v2"></a>
+# Exercise 35 <a name="ex35"></a>
 
 ## Description
 
-Report the line(s) associated with the maximum value of PM10
-Use cache, map, reduce and filter
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-s1,2016-01-02,60.2
-s1,2016-01-03,60.2
-```
-
-
-# Exercise 34 version 3 <a name="ex33v3"></a>
-
-## Description
-
-Report the line(s) associated with the maximum value of PM10
-Use dataframe
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-s1,2016-01-02,60.2
-s1,2016-01-03,60.2
-```
-
-
-# Exercise 34 version 4 <a name="ex33v4"></a>
-
-## Description
-
-Report the line(s) associated with the maximum value of PM10
-Use dataset
-
-### INPUT
-```
-s1,2016-01-01,20.5
-s2,2016-01-01,30.1
-s1,2016-01-02,60.2
-s2,2016-01-02,20.4
-s1,2016-01-03,55.5
-s2,2016-01-03,52.5
-```
-
-### OUTPUT
-```
-s1,2016-01-02,60.2
-s1,2016-01-03,60.2
-```
-
-
-# Exercise 34 version 5 <a name="ex33v5"></a>
-
-## Description
-
-Report the line(s) associated with the maximum value of PM10
-Use sql 
+Report the date(s) associated with the maximum value of PM10 and store the result in an HDFS folder
 
 ### INPUT
 ```
