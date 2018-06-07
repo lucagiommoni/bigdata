@@ -111,6 +111,14 @@
 
 36. [Exercise 36](#ex36) :
 
+  * version 1 : [PersonalizedClass]
+
+  * version 2 : [dataframe]
+
+  * version 3 : [dataset]
+
+  * version 4 : [sql]
+
 37. [Exercise 37](#ex37) :
 
 38. [Exercise 38](#ex38) :
@@ -941,6 +949,27 @@ s2,2016-01-03,52.5
 
 ### OUTPUT
 ```
+2016-01-02
+```
+
+
+# Exercise 36 <a name="ex36"></a>
+
+## Description
+
+Compute the average PM10 value and print the result on the standard output
+
+### INPUT
+```
+s1,2016-01-01,20.5
+s2,2016-01-01,30.1
 s1,2016-01-02,60.2
-s1,2016-01-03,60.2
+s2,2016-01-02,20.4
+s1,2016-01-03,55.5
+s2,2016-01-03,52.5
+```
+
+### OUTPUT
+```
+39.86
 ```
