@@ -121,6 +121,14 @@
 
 37. [Exercise 37](#ex37) :
 
+  * version 1 : [PersonalizedClass]
+
+  * version 2 : [dataframe]
+
+  * version 3 : [dataset]
+
+  * version 4 : [sql]
+
 38. [Exercise 38](#ex38) :
 
 39. [Exercise 39](#ex39) :
