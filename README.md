@@ -1,4 +1,4 @@
-# Bigdata
+# BIG DATA: ARCHITECTURES AND DATA ANALYTICS
 _June 2018_
 <br>
 <br>
