@@ -1,7 +1,18 @@
 # Bigdata
-01QYDOV
+_June 2018_
+<br>
+<br>
 
-## Exercises:
+## <a href="https://didattica.polito.it/pls/portal30/sviluppo.guide.visualizza?p_cod_ins=01QYDOV&p_a_acc=2016&p_header=S&p_esa=N&p_ridotto=N&p_lang=EN">MASTER DEGREE, COURSE 01QYDOV</a>
+<br>
+
+This repository contains my laboratory exercises releated to the academic course I attended at <a href="https://www.polito.it/index.php?lang=en">Politecnico di Torino</a>.
+
+The course addresses the challenges arising in the Big Data era, mainly from a data prospective. Specifically, the course will cover how to collect, store, retrieve, and analyze big data to mine useful knowledge and insightful hints. The course covers not only data model and data analytics aspects but also novel programming paradigms (e.g., Map Reduce, Spark RDDs), distributed systems (e.g., Hadoop), cloud computing and network infrastructures, and discusses how they can be exploit to support big data scientists to extract insights from data.
+Laboratory sessions allow experimental activities on the most widespread open-source products.
+<br><br>
+
+### Exercises:
 
 2. [Exercise 2](#ex2): [WordCount problem]
 
@@ -129,31 +140,31 @@
 
   * version 4 : [sql]
 
-38. [Exercise 38](#ex38) :
+38. [Exercise 38](#ex38)
 
-39. [Exercise 39](#ex39) :
+39. [Exercise 39](#ex39)
 
-40. [Exercise 40](#ex40) :
+40. [Exercise 40](#ex40)
 
-41. [Exercise 41](#ex41) :
+41. [Exercise 41](#ex41)
 
-42. [Exercise 42](#ex42) :
+42. [Exercise 42](#ex42)
 
-43. [Exercise 43](#ex43) :
+43. [Exercise 43](#ex43)
 
-44. [Exercise 44](#ex44) :
+44. [Exercise 44](#ex44)
 
-45. [Exercise 45](#ex45) :
+45. [Exercise 45](#ex45)
 
-46. [Exercise 46](#ex46) :
+46. [Exercise 46](#ex46)
 
-47. [Exercise 47](#ex47) :
+47. [Exercise 47](#ex47)
 
-48. [Exercise 48](#ex48) :
+48. [Exercise 48](#ex48)
 
-49. [Exercise 49](#ex49) :
+49. [Exercise 49](#ex49)
 
-50. [Exercise 50](#ex50) :
+50. [Exercise 50](#ex50)
 
 
 # Exercise 2 <a name="ex2"></a>
